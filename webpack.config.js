@@ -1,5 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { Module } = require('module');
+const { ModuleFederationPlugin } = require('@module-federation/enhanced');
 
 module.exports = {
   name: 'client',
@@ -25,6 +27,22 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/client/index.html'
-    })
+    }),
+    new ModuleFederationPlugin({
+      name: 'client',
+      filename: 'remoteEntry.js',
+      exposes: {
+        './App': './src/client/components/app'
+      },
+      shared: {
+        'react': {
+          singleton: true,
+        },
+        'react-dom': {
+          singleton: true,
+        }
+      }
+    }
+    )
   ]
 };
