@@ -1,9 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-
-const App: React.FC = () => {
-  return <div>Hello, world!</div>;
-};
+import './index.css';
+import { App } from './components/app';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as any);
 
