@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "ts-node ./src/server/app.ts",
+    "start-watch": "nodemon ./src/server/app.ts",
     "watch": "webpack --watch",
-    "dev": "npm-run-all --parallel start watch",
+    "dev": "npm-run-all --parallel watch start-watch",
     "dev-webpack": "webpack serve --open",
     "build": "webpack --mode production"
   },
@@ -19,6 +20,7 @@
     "cors": "^2.8.5",
     "css-loader": "^7.1.2",
     "express": "^4.21.1",
+    "nodemon": "^3.1.7",
     "postcss-loader": "^8.1.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
