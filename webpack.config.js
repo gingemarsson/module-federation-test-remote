@@ -8,9 +8,9 @@ module.exports = {
   entry: './src/client/index.tsx',
   mode: 'development',
   output: {
-    filename: 'bundle.js',
+    filename: '[name].js',
     path: path.resolve(__dirname, 'dist/client'),
-    publicPath: '/',
+    publicPath: 'auto',
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js']
@@ -33,8 +33,7 @@ module.exports = {
       template: './src/client/index.html'
     }),
     new ModuleFederationPlugin({
-      name: 'client',
-      filename: 'remoteEntry.js',
+      name: 'client_test_remote',
       exposes: {
         './App': './src/client/components/app'
       },
